@@ -1,121 +1,296 @@
+好的，这是一份详细的、直接可用于外贸网站的 `style.css` 样式文档，以及配套的 HTML 结构说明。
+
+这份 CSS 文档使用现代 **Flexbox** 和 **Grid** 布局，并加入了基本的**响应式设计**，以确保在手机端也能有良好的显示效果。
+
+-----
+
+## 💻 `index.html` 示例结构 (配合 CSS 使用)
+
+在应用 CSS 之前，请确保您的 HTML 结构如下：
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>您的外贸网站名称</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">您的公司名称/Logo</div>
+        <nav>
+            <a href="#">首页</a>
+            <a href="#">产品</a>
+            <a href="#">关于我们</a>
+            <a href="#">联系</a>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section class="product-section">
+            <h2 class="section-title">热门产品 (Hot Products)</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/product1.jpg" alt="产品名称 1">
+                    <h3 class="product-title">产品名称 1</h3>
+                    <p class="product-price">USD $49.99</p>
+                    <a href="#" class="btn-detail">查看详情</a>
+                </div>
+                </div>
+        </section>
+
+        <section class="product-section featured-bg">
+            <h2 class="section-title">最新发布 (New Arrivals)</h2>
+            <div class="product-grid">
+                </div>
+        </section>
+        
+        <section class="product-section">
+            <h2 class="section-title">促销产品 (Special Offer)</h2>
+            <div class="product-grid">
+                </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 您的公司. All Rights Reserved.</p>
+        <p>联系邮箱: info@yourcompany.com</p>
+    </footer>
+
+</body>
+</html>
+```
+
+-----
+
+## 📝 `style.css` 详细文档
+
+```css
+/* ========================================================================= */
+/* 0. 全局样式和重置 */
+/* ========================================================================= */
+* {
+    /* 使用 box-sizing 使 padding 和 border 不会增加元素的总宽度和高度，便于布局 */
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+/* 字体设置 */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f5f5f5;
-  color: #333;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333; /* 默认字体颜色：深灰色 */
+    background-color: #f8f9fa; /* 页面背景色：非常浅的灰色 */
+    padding-top: 60px; /* 留出顶部空间给固定定位的 Header */
 }
 
+/* 链接样式 */
+a {
+    text-decoration: none;
+    color: #007bff; /* 蓝色链接 */
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+
+/* ========================================================================= */
+/* 1. 头部 (HEADER) 样式 */
+/* ========================================================================= */
 header {
-  background-color: #002b5b;
-  color: white;
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-}
-
-.products, .contact {
-  padding: 2rem;
-  text-align: center;
-}
-
-.product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.product {
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ccc;
-  width: 260px;
-}
-/* 1. 设置画廊容器为 Flex 布局 */
-.image-gallery {
-    display: flex; /* 启用 Flexbox */
-    flex-wrap: wrap; /* 允许项目在新行换行（实现响应式时有用） */
-    justify-content: space-between; /* 弹性地分配空间，使图片之间有空隙 */
-    max-width: 1000px; /* 设置画廊的最大宽度，防止在超宽屏幕上拉伸过度 */
-    margin: 0 auto; /* 居中整个画廊容器 */
-}
-
-/* 2. 设置每个图片容器的宽度 */
-.gallery-item {
-    /* calc() 函数用于计算宽度：(100% - 20px * 2) / 3 
-       100% 减去两个间隙（20px x 2 = 40px），再除以 3 */
-    width: calc(33.33% - 27px); 
-    margin-bottom: 20px; /* 设置图片底部间距，防止堆叠 */
-}
-
-/* 3. 设置图片之间的空隙（可选） */
-.image-gallery .gallery-item:nth-child(3n) {
-    margin-right: 0; /* 每行最后一个元素取消右边距 */
-}
-
-/* 4. 让图片自动适应父容器 */
-.gallery-item img {
-    width: 100%; /* 图片宽度等于父容器 (gallery-item) 的 100% */
-    height: auto; /* 高度自动计算，保持图片原始比例，避免变形 */
-    display: block; /* 移除图片底部可能出现的空白间隙 */
-    object-fit: cover; /* 如果需要固定高度，但又想保持图片比例和裁剪 */
-}
-
-.gallery-item {
-    width: calc(33.33% - 20px);
-    height: 200px; /* 设置固定的高度 */
-    overflow: hidden; /* 隐藏超出容器的部分 */
-}
-
-.gallery-item img {
+    background-color: #ffffff; /* 头部背景色：白色 */
+    color: #333;
+    padding: 10px 5%; /* 顶部和底部 10px，左右 5% 间距 */
+    display: flex; /* 使用 Flexbox 进行内部布局 */
+    justify-content: space-between; /* Logo 和 Nav 分居两侧 */
+    align-items: center; /* 垂直居中对齐 */
+    
+    /* 固定在页面顶部 */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%; 
-    /* 关键属性：让图片覆盖整个容器，超出部分裁剪，但保持比例 */
+    z-index: 1000; /* 确保 Header 浮于其他内容之上 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 底部阴影 */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #c0392b; /* Logo 颜色：醒目的红色 */
+}
+
+header nav a {
+    margin-left: 20px;
+    font-size: 16px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #c0392b; /* 悬停颜色与 Logo 一致 */
+}
+
+
+/* ========================================================================= */
+/* 2. 主要内容区 (MAIN) 样式 */
+/* ========================================================================= */
+main {
+    max-width: 1200px; /* 限制内容最大宽度，使页面居中 */
+    margin: 20px auto; /* 上下 20px 间距，左右自动居中 */
+    padding: 0 20px; /* 内容左右内边距 */
+}
+
+/* 标题字体和位置 */
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c3e50; /* 标题颜色：深蓝色/黑色 */
+    text-align: center; /* 标题居中 */
+    margin-bottom: 30px;
+    padding-top: 20px;
+}
+
+/* 具有特殊背景的产品区域 */
+.featured-bg {
+    background-color: #ecf0f1; /* 特色背景色：浅灰色 */
+    padding: 40px 0;
+    margin: 40px -20px; /* 负外边距以覆盖 main 的 padding */
+}
+
+
+/* ========================================================================= */
+/* 3. 产品区域 (2行3列布局) - 使用 Grid 布局 */
+/* ========================================================================= */
+.product-grid {
+    display: grid;
+    /* 定义 3 列，每列平均分配可用空间 (1fr) */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* 产品卡片之间的间距 */
+}
+
+/* 产品卡片样式 */
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* 隐藏超出边界的内容 */
+    text-align: center;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* 悬停时轻微上移 */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 图片尺寸大小 */
+.product-card img {
+    width: 100%; /* 图片宽度填充整个卡片 */
+    height: 250px; /* 固定图片高度 */
+    /* 保持图片比例，并裁剪多余部分以填充指定尺寸 */
     object-fit: cover; 
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.product-title {
+    font-size: 18px;
+    color: #2980b9;
+    margin-bottom: 8px;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e74c3c; /* 价格颜色：红色 */
+    margin-bottom: 15px;
+}
+
+.btn-detail {
+    display: inline-block;
+    background-color: #27ae60; /* 按钮背景色：绿色 */
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-detail:hover {
+    background-color: #2ecc71;
 }
 
 
-
-.whatsapp-button {
-  display: inline-block;
-  background-color: #25D366;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1rem;
-  margin-top: 1rem;
-}
-
+/* ========================================================================= */
+/* 4. 底部 (FOOTER) 样式 */
+/* ========================================================================= */
 footer {
-  background: #eee;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+    background-color: #34495e; /* 底部背景色：深灰色 */
+    color: #ecf0f1; /* 底部字体颜色：浅灰色 */
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 14px;
 }
 
-/* 当屏幕宽度小于或等于 600 像素时（适用于手机） */
-@media (max-width: 600px) {
+footer p {
+    margin: 5px 0;
+}
+
+
+/* ========================================================================= */
+/* 5. 响应式调整 (让手机端显示为 1 列) */
+/* ========================================================================= */
+
+/* 当屏幕宽度小于或等于 768px 时 (平板电脑/手机) */
+@media (max-width: 768px) {
     
-    /* 1. 让每张图片占据一行（即一行一个）*/
-    .gallery-item {
-        width: 100%; /* 宽度设置为 100% */
-        margin-right: 0; /* 取消所有右边距 */
+    /* 头部调整 */
+    header {
+        flex-direction: column; /* 垂直排列 */
+        padding: 10px 20px;
+        position: static; /* 手机上取消固定定位 */
+        padding-top: 20px;
     }
     
-    /* 2. （如果使用了固定高度）可以适当调整高度 */
-    .gallery-item {
-        height: 300px; /* 手机上可以稍微高一点 */
+    body {
+        padding-top: 0;
     }
 
-    /* 3. 移除容器居中时的最大宽度限制 */
-    .image-gallery {
-        max-width: 90%; /* 给左右留出一点边距，避免贴边 */
+    header nav a {
+        margin: 5px 10px;
+        display: inline-block;
+    }
+
+    /* 标题调整 */
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    /* 产品网格调整：改为 1 列 */
+    .product-grid {
+        grid-template-columns: 1fr; /* 只显示 1 列 */
+        gap: 20px;
+    }
+    
+    /* 产品卡片和图片高度调整 */
+    .product-card {
+        padding-bottom: 15px;
+    }
+    
+    .product-card img {
+        height: 200px; /* 手机上图片高度适当降低 */
     }
 }
+```
