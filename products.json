@@ -3,7 +3,7 @@
     "id": "A001",
     "name": "Zinc door handle",
     "price": "15.99",
-    "image": "images/8545d-2.jpg",
+    "image": "image/8545d-2.jpg",
     "desc_short": "专为重型工业设计的耐磨手套。",
     "desc_long": "这是一款专为重型工业设计的耐磨手套，采用高强度材料，具有卓越的防割和防滑性能。适用于建筑工地、机械维修和搬运作业等严苛环境。",
     "features": ["高强度防割材料", "优秀防滑抓握力", "透气舒适设计"]
@@ -12,7 +12,7 @@
     "id": "A002",
     "name": "High quality door lock",
     "price": "12000.00",
-    "image": "images/Brass cyliner single open 5.jpg",
+    "image": "image/Brass cyliner single open 5.jpg",
     "desc_short": "新一代高精度、高效率数控切割解决方案。",
     "desc_long": "我们的高精度数控切割机采用最先进的伺服系统和激光校准技术，确保切割的每一条线都达到工业最高标准。适用于金属加工、模具制造等。",
     "features": ["0.01mm 精度", "智能故障诊断", "远程操作支持"]
@@ -21,7 +21,7 @@
     "id": "A003",
     "name": "Lock cylinder",
     "price": "12000.00",
-    "image": "images/deadlock.jpg",
+    "image": "image/deadlock.jpg",
     "desc_short": "新一代高精度、高效率数控切割解决方案。",
     "desc_long": "我们的高精度数控切割机采用最先进的伺服系统和激光校准技术，确保切割的每一条线都达到工业最高标准。适用于金属加工、模具制造等。",
     "features": ["0.01mm 精度", "智能故障诊断", "远程操作支持"]
@@ -30,7 +30,7 @@
     "id": "A004",
     "name": "Lock cylinder",
     "price": "12000.00",
-    "image": "images/hidden hinge 9.jpg",
+    "image": "image/hidden hinge 9.jpg",
     "desc_short": "新一代高精度、高效率数控切割解决方案。",
     "desc_long": "我们的高精度数控切割机采用最先进的伺服系统和激光校准技术，确保切割的每一条线都达到工业最高标准。适用于金属加工、模具制造等。",
     "features": ["0.01mm 精度", "智能故障诊断", "远程操作支持"]
