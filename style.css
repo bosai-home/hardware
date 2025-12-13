@@ -30,44 +30,59 @@ a:hover {
     color: #0056b3;
 }
 
-/* 1. 头部 (HEADER) 样式 - 原有部分 */
+ /* 1. 头部 (HEADER) 样式 */
 header {
-    background-color: #ffffff;
-    color: #333;
-    padding: 10px 5%; /* 调整：确保左右有足够空间 */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
+    background-color: #ffffff; 
+    padding: 10px 5%; 
+    
+    /* 取消 fixed，我们用 main 的 padding 解决内容被遮挡的问题 */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+
+    /* 改进：Flexbox 居中 Header 内容 */
+    display: flex;
+    justify-content: center; /* 关键：让 header 内部容器居中 */
 }
-/* ========================================================================= */
-/* 1. 头部 (HEADER) 样式 */
-/* ========================================================================= */
- 
+
+/* 新增：创建 Header 的内容容器，限制其最大宽度 */
+.header-content {
+    display: flex;
+    justify-content: space-between; /* 保持 Logo 和 Nav 分居两侧 */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* 限制 Header 内容的最大宽度，与 main 保持一致 */
+}
+
+/* 调整 header 结构，在 HTML 中添加 .header-content 容器 */
+/* HTML 结构应该变成：
+    <header>
+        <div class="header-content">
+            <div class="logo">...</div>
+            <nav>...</nav>
+        </div>
+    </header>
+*/
 
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #c0392b; /* Logo 颜色：醒目的红色 */
+    color: #c0392b; 
 }
 
 header nav a {
-    margin-left: 20px;
-    margin-right:20px;
+    margin-left: 25px; /* 稍微增加链接之间的间距 */
     font-size: 16px;
     color: #555;
     transition: color 0.3s ease;
 }
 
 header nav a:hover {
-    color: #c0392b; /* 悬停颜色与 Logo 一致 */
+    color: #c0392b; 
 }
-
 
 /* ========================================================================= */
 /* 2. 主要内容区 (MAIN) 样式 */
