@@ -30,27 +30,25 @@ a:hover {
     color: #0056b3;
 }
 
-
-/* ========================================================================= */
-/* 1. 头部 (HEADER) 样式 */
-/* ========================================================================= */
+/* 1. 头部 (HEADER) 样式 - 原有部分 */
 header {
-    background-color: #ffffff; /* 头部背景色：白色 */
+    background-color: #ffffff;
     color: #333;
-    padding: 10px 5%; /* 顶部和底部 10px，左右 5% 间距 */
-    display: flex; /* 使用 Flexbox 进行内部布局 */
-    justify-content: space-between; /* Logo 和 Nav 分居两侧 */
-    align-items: center; /* 垂直居中对齐 */
-    
-    /* 固定在页面顶部 */
+    padding: 10px 5%; /* 调整：确保左右有足够空间 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    right:20px;
     width: 100%;
-    z-index: 1000; /* 确保 Header 浮于其他内容之上 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 底部阴影 */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+/* ========================================================================= */
+/* 1. 头部 (HEADER) 样式 */
+/* ========================================================================= */
+ 
 
 .logo {
     font-size: 24px;
@@ -226,3 +224,38 @@ footer p {
     }
 }
 ```
+/* ========================================================================= */
+/* 5. 响应式调整 (让手机端显示为 1 列) - 重点修改此处 */
+/* ========================================================================= */
+
+@media (max-width: 768px) {
+    
+    /* 头部调整 */
+    header {
+        flex-direction: column; /* 让 Logo 和 Nav 垂直堆叠 */
+        padding: 10px 20px;
+        position: static; /* 手机上取消固定定位，避免遮挡内容 */
+        height: auto; /* 高度自适应 */
+    }
+    
+    body {
+        padding-top: 0; /* 取消 body 上的 padding-top */
+    }
+
+    /* 导航栏容器调整 */
+    header nav {
+        margin-top: 10px; /* Logo 和 Nav 之间增加间距 */
+        display: flex;
+        flex-wrap: wrap; /* 关键：允许导航链接在空间不足时换行 */
+        justify-content: center; /* 导航链接居中显示 */
+    }
+
+    /* 导航链接调整 */
+    header nav a {
+        margin: 5px 10px; /* 调整间距，避免链接互相贴近 */
+        display: inline-block;
+    }
+    
+    /* ... 媒体查询内其他样式（如 product-grid 等）保持不变 ... */
+}
+ 
