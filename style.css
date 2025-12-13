@@ -80,6 +80,26 @@ header h1 {
     object-fit: cover; 
 }
 
+
+
+.whatsapp-button {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+footer {
+  background: #eee;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
 /* 当屏幕宽度小于或等于 600 像素时（适用于手机） */
 @media (max-width: 600px) {
     
@@ -98,22 +118,4 @@ header h1 {
     .image-gallery {
         max-width: 90%; /* 给左右留出一点边距，避免贴边 */
     }
-}
-
-.whatsapp-button {
-  display: inline-block;
-  background-color: #25D366;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1rem;
-  margin-top: 1rem;
-}
-
-footer {
-  background: #eee;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
 }
