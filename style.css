@@ -37,6 +37,68 @@ header h1 {
   box-shadow: 0 0 10px #ccc;
   width: 260px;
 }
+/* 1. 设置画廊容器为 Flex 布局 */
+.image-gallery {
+    display: flex; /* 启用 Flexbox */
+    flex-wrap: wrap; /* 允许项目在新行换行（实现响应式时有用） */
+    justify-content: space-between; /* 弹性地分配空间，使图片之间有空隙 */
+    max-width: 1000px; /* 设置画廊的最大宽度，防止在超宽屏幕上拉伸过度 */
+    margin: 0 auto; /* 居中整个画廊容器 */
+}
+
+/* 2. 设置每个图片容器的宽度 */
+.gallery-item {
+    /* calc() 函数用于计算宽度：(100% - 20px * 2) / 3 
+       100% 减去两个间隙（20px x 2 = 40px），再除以 3 */
+    width: calc(33.33% - 27px); 
+    margin-bottom: 20px; /* 设置图片底部间距，防止堆叠 */
+}
+
+/* 3. 设置图片之间的空隙（可选） */
+.image-gallery .gallery-item:nth-child(3n) {
+    margin-right: 0; /* 每行最后一个元素取消右边距 */
+}
+
+/* 4. 让图片自动适应父容器 */
+.gallery-item img {
+    width: 100%; /* 图片宽度等于父容器 (gallery-item) 的 100% */
+    height: auto; /* 高度自动计算，保持图片原始比例，避免变形 */
+    display: block; /* 移除图片底部可能出现的空白间隙 */
+    object-fit: cover; /* 如果需要固定高度，但又想保持图片比例和裁剪 */
+}
+
+.gallery-item {
+    width: calc(33.33% - 20px);
+    height: 200px; /* 设置固定的高度 */
+    overflow: hidden; /* 隐藏超出容器的部分 */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%; 
+    /* 关键属性：让图片覆盖整个容器，超出部分裁剪，但保持比例 */
+    object-fit: cover; 
+}
+
+/* 当屏幕宽度小于或等于 600 像素时（适用于手机） */
+@media (max-width: 600px) {
+    
+    /* 1. 让每张图片占据一行（即一行一个）*/
+    .gallery-item {
+        width: 100%; /* 宽度设置为 100% */
+        margin-right: 0; /* 取消所有右边距 */
+    }
+    
+    /* 2. （如果使用了固定高度）可以适当调整高度 */
+    .gallery-item {
+        height: 300px; /* 手机上可以稍微高一点 */
+    }
+
+    /* 3. 移除容器居中时的最大宽度限制 */
+    .image-gallery {
+        max-width: 90%; /* 给左右留出一点边距，避免贴边 */
+    }
+}
 
 .whatsapp-button {
   display: inline-block;
