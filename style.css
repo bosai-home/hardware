@@ -46,6 +46,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    right:20px;
     width: 100%;
     z-index: 1000; /* 确保 Header 浮于其他内容之上 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 底部阴影 */
@@ -59,6 +60,7 @@ header {
 
 header nav a {
     margin-left: 20px;
+    margin-right:20px;
     font-size: 16px;
     color: #555;
     transition: color 0.3s ease;
