@@ -4,51 +4,42 @@
     "name": "Aluminum door handle",
     "price": "15.99",
     "image": "image/alm door handle-a sand white.jpg",
-    "desc_short": " High-end aluminum alloy door handles",
-
-
+    "desc_short": " High-end aluminum alloy door handles"
   },
   {
     "id": "DH002",
     "name": "Aluminum alloy door lock",
     "price": "12000.00",
     "image": "image/alm door handle-g matt black.jpg",
-    "desc_short": " High-end aluminum alloy door handles Solid One-Piece Casting",
-
- 
+    "desc_short": " High-end aluminum alloy door handles Solid One-Piece Casting" 
   },
    {
     "id": "DH003",
     "name": "Door handle Aluminum",
     "price": "12000.00",
     "image": "image/alm door handle-h matt black 2.jpg",
-    "desc_short": " High-end aluminum alloy door handles",
-
-  
+    "desc_short": " High-end aluminum alloy door handles" 
   },
      {
     "id": "DH004",
     "name": " Inner door zinc alloy split lock",
     "price": "12000.00",
     "image": "image/door lock zinc 020 black 8.jpg",
-    "desc_short": " Inner door zinc alloy split lock high quality",
-
+    "desc_short": " Inner door zinc alloy split lock high quality"
   },
   {
     "id": "DH005",
     "name": " Inner door zinc alloy split lock",
     "price": "12000.00",
     "image": "image/door lock zinc alloy gold 4.jpg",
-    "desc_short": " Inner door zinc alloy split lock high quality",
-
+    "desc_short": " Inner door zinc alloy split lock high quality"
   },
   {
     "id": "DH006",
     "name": " Zinc door handle",
     "price": "12000.00",
     "image": "image/zinc door lock black 6.jpg",
-    "desc_short": "Zinc alloy split lock high quality",
-
+    "desc_short": "Zinc alloy split lock high quality"
   }
 
 
